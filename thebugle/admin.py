@@ -1,5 +1,5 @@
 from django.contrib import admin
-from thebugle.models import Subject, Episode, Mention, Speaker, Segment
+from models import Subject, Episode, Mention, Speaker, Segment
 
 class SubjectAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
