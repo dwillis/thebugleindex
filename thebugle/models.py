@@ -55,5 +55,5 @@ class Mention(models.Model):
     timestamp = models.TimeField()
     
     def __unicode__(self):
-        return self.subject
+        return self.subject.name
         
