@@ -15,7 +15,7 @@ class MentionAdmin(admin.ModelAdmin):
     list_display = ('subject', 'segment', 'speaker', 'timestamp')
 
 class SegmentAdmin(admin.ModelAdmin):
-    list_display = ('episode', 'title')
+    list_display = ('episode', 'title', 'is_top_story')
     prepopulated_fields = {'slug': ('title',)}
 
 
