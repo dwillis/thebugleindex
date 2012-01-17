@@ -41,9 +41,14 @@ class Segment(models.Model):
     title = models.CharField(max_length=90)
     slug = models.SlugField(max_length=90)
     is_top_story = models.BooleanField(default=False)
+    minute = models.PositiveIntegerField()
+    seconds = models.PositiveIntegerField()
 
     def __unicode__(self):
         return self.title
+        
+    def start_marker(self):
+        return "%s:%s" % (str(self.minute), str(self.seconds))
 
     def get_absolute_url(self):
         return '/segments/%s' % self.slug
@@ -52,11 +57,6 @@ class Mention(models.Model):
     subject = models.ForeignKey(Subject)
     segment = models.ForeignKey(Segment)
     speaker = models.ForeignKey(Speaker)
-    minute = models.PositiveIntegerField()
-    seconds = models.PositiveIntegerField()
     
     def __unicode__(self):
         return self.subject.name
-    
-    def start_marker(self):
-        return "%s:%s" % (str(self.minute), str(self.seconds))
