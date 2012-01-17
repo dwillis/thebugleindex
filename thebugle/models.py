@@ -57,4 +57,6 @@ class Mention(models.Model):
     
     def __unicode__(self):
         return self.subject.name
-        
+    
+    def start_marker(self):
+        return "%s:%s" % (str(self.minute), str(self.seconds))
