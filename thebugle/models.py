@@ -52,7 +52,8 @@ class Mention(models.Model):
     subject = models.ForeignKey(Subject)
     segment = models.ForeignKey(Segment)
     speaker = models.ForeignKey(Speaker)
-    timestamp = models.TimeField()
+    minute = models.PositiveIntegerField()
+    seconds = models.PositiveIntegerField()
     
     def __unicode__(self):
         return self.subject.name
